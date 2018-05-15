@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset = "UTF-8">
+      <title></title>
+   </head>
+
+<script>
+const {ipcRenderer}=require('electron')
+
+function clickButton(){
+  ipcRenderer.send('click-button','true')
+}
+
+ipcRenderer.send('openFile',()=>{
+
+})
+
+ipcRenderer.on('fileData',(event,data)=>{
+  document.write(data)
+})
+
+</script>
+
+
+   <body>
+    <button onclick="clickButton()">Open File</button>
+   </body>
+</html>
